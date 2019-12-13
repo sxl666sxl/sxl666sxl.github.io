@@ -149,13 +149,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2019/12/09/%E6%B5%8B%E8%AF%95/">
-                测试
+            <a href="/2019/12/13/AGCTF%E7%9A%84wp/">
+                AGCTF的wp
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2019-12-09</span>
+                <span class="date">2019-12-13</span>
             
             
             
@@ -164,45 +164,7 @@
 
     
         <div class="content">
-            
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2019/12/09/hello-world/">
-                Hello World
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-12-09</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>web1:<br>首先，按照题目规定，将当前浏览器设置代理服务器，改成黑板上的ip地址，再登入题目所给的网址,发现是一个正常的百度页面，然后f12查看源码，发现body有一栏中隐藏着flag。<br>web2：<br>还是将服务器设置代理，然后点进题目所给的网站。发现网站显示链接错误。这时候登入http://当前ip:4001/web000（网页的上一个目录），发现一系列网站相关文件，仔细观察，分析，思考后，发现只有后缀为.js的网页用f12查看源码有一些奇奇怪怪的由![]+构成的代码。分析发现这是js代码。将这一大串代码拖进控制台运行，得到flag。<br>MISC签到：<br>复制，粘贴。<br>圣堂刺客：<br>下载题目所给图片，直接拖进记事本，发现隐藏的flag。<br>奥利安娜的qq号：<br>直接运用c语言知识，编写程序，最后运行出flag。<br>多喝水：<br>与上题相同思路，拖进记事本，发现有一串英文，ohhhh，just do it。后面连着一串奇怪的字符。经过分析、思考、查证之后发现是base64加密后的密文，直接在百度上搜索base64解密。解密后得到flag。<br>帅帅帅：<br>下载题目所给的html网页文件后，打开网页。f12查看源码，得到flag。<br>单身狗：<br>下载题目所给文件后。发现二维码的一个定位点被一只该死的狗挡住了。这时候打开画图软件（ps应该也可以），把狗擦掉。补全定位点。扫描二维码得到flag。<br>一个32岁学长的情书：<br>题目都暗示了，为啥是32岁，不是30岁，不是100岁，偏偏是32岁。为啥写给贝丝不写给我。很明显这段密码是要用base32解密。解密后得到flag。<br>这是个gif：<br>下载题目所给文件后，打开，很明显图片格式打不开。这时候分析一下应该是文件代码出现了问题。将文件拖进winhex。百度搜索gif文件头尾。发现文件头缺失。点击winhex中的edit（编辑），插入3组文件头。保存。打开文件后。发现gif文件中有一帧含flag。用stegsolve直接打开截取那一帧。获得flag。<br>easy misc：<br>弱密码字典直接爆破（将txt改成dic），得到一个图片，发现一个图片，没什么用，binwalk执行该文件发现这个文件下含有一个压缩文件。修改图片的后缀名。<br>得到二维码，用上面题的思路，得到flag。<br>ezida：<br>直接用ida打开，往下拉发现右侧灰色字体有flag。<br>easy re：<br>用ida打开，根据右侧灰色字体提示，找到该程序的主函数。f5转换为c源码。用r转换为字符串。获得flag。<br>RE:<br>先打开ida，分析代码，发现字符串长度为15。再往下分析，发现flag与一串字符有关，将字符串转化为16进制的数字，编一个c语言脚本，将每一个16进制数字分别减去40.发现flag</p>
 
         </div>
     
@@ -238,11 +200,7 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2019/12/09/%E6%B5%8B%E8%AF%95/">测试</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/09/hello-world/">Hello World</a>
+                <a class="footer-post" href="/2019/12/13/AGCTF%E7%9A%84wp/">AGCTF的wp</a>
             </li>
             
         </ul>
