@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="逆向刷题记录11.签到题ida打开直接获取flag
+2.reverse1ida打开。shift+f12查看所有字符，发现有this is the right flag！，双击打开，”x”键交叉引用，切换到关键代码F5反汇编显示截取的部分代码。发现flag和str2有关系，双击str2点进去发现是{h">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="孙晓林"/>
+        <meta property="og:title" content="逆向刷题记录1"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>Archives - 孙晓林</title>
+    <title>逆向刷题记录1 - 孙晓林</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -129,9 +132,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -139,34 +140,53 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">Archives</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">
-        <span class="archive-date">
-            Jan 2020
-        </span>
-        逆向刷题记录1
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">
+                逆向刷题记录1
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-01-17</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="逆向刷题记录1"><a href="#逆向刷题记录1" class="headerlink" title="逆向刷题记录1"></a>逆向刷题记录1</h1><h2 id="1-签到题"><a href="#1-签到题" class="headerlink" title="1.签到题"></a>1.签到题</h2><p>ida打开直接获取flag</p>
+<h2 id="2-reverse1"><a href="#2-reverse1" class="headerlink" title="2.reverse1"></a>2.reverse1</h2><p>ida打开。shift+f12查看所有字符，发现有this is the right flag！，双击打开，”x”键交叉引用，切换到关键代码F5反汇编显示截取的部分代码。<br><img src="C:%5CUsers%5CASUS%5Cblog%5C%E5%9B%BE%E7%89%87%5C0.PNG" alt="avatar"><br>发现flag和str2有关系，双击str2点进去发现是{hello_world}<br>但是刚刚伪代码中显示要将‘o’换成‘0’<br>所以flag{hell0_w0rld}</p>
+<h2 id="3-reverse2"><a href="#3-reverse2" class="headerlink" title="3.reverse2"></a>3.reverse2</h2><p>用与上面相同的方法，找到主要函数，发现这次flag函数中i或者r字母都替换成1<br><img src="C:%5CUsers%5CASUS%5Cblog%5C%E5%9B%BE%E7%89%87%5C1.PNG" alt="avatar"><br>得到flag{hack1ng_fo1_fun}</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2019/12/13/AGCTF%E7%9A%84wp/">
-        <span class="archive-date">
-            Dec 2019
-        </span>
-        AGCTF的wp
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
