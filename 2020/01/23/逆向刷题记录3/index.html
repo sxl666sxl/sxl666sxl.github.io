@@ -169,9 +169,9 @@ r">
         
 
         <!-- Post Content -->
-        <h2 id="内涵的软件"><a href="#内涵的软件" class="headerlink" title="内涵的软件"></a>内涵的软件</h2><p>ida打开软件，还是老套路f12+shift查看所有字符串，找到主要函数，如图<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/5.png" alt><br>红圈之内的就是flag。。。</p>
-<h2 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h2><p>还是老套路，找到主函数，发现这里的flag被加密过了，和变量global有关系，找到global这个字符串之后，编一个脚本，把flag跑出来就ok，脚本代码及运行结果如下：<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/6.png" alt></p>
-<h2 id="reverse3"><a href="#reverse3" class="headerlink" title="reverse3"></a>reverse3</h2><p>这个题有点难度，涉及到了高级加密算法<br>发现加密后的str2结果是e3nifIH9b_C@n@dH，编一个脚本跑出来发现还不是答案，百度后发现还包含一次base64加密。<br>脚本如下：<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/7.png" alt><br>然后base64解密<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/8.png" alt><br>flag出来了</p>
+        <h2 id="内涵的软件"><a href="#内涵的软件" class="headerlink" title="内涵的软件"></a>内涵的软件</h2><p>ida打开软件，还是老套路f12+shift查看所有字符串，找到主要函数，如图<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/5.PNG" alt><br>红圈之内的就是flag。。。</p>
+<h2 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h2><p>还是老套路，找到主函数，发现这里的flag被加密过了，和变量global有关系，找到global这个字符串之后，编一个脚本，把flag跑出来就ok，脚本代码及运行结果如下：<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/6.PNG" alt></p>
+<h2 id="reverse3"><a href="#reverse3" class="headerlink" title="reverse3"></a>reverse3</h2><p>这个题有点难度，涉及到了高级加密算法<br>发现加密后的str2结果是e3nifIH9b_C@n@dH，编一个脚本跑出来发现还不是答案，百度后发现还包含一次base64加密。<br>脚本如下：<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/7.PNG" alt><br>然后base64解密<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/8.PNG" alt><br>flag出来了</p>
 
     </div>
 
