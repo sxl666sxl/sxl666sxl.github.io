@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="偷学一点（php弱类型绕过）"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="孙晓林"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>偷学一点（php弱类型绕过） - 孙晓林</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.1.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2020/02/03/web%EF%BC%88php%E5%BC%B1%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87%EF%BC%89/">
+                偷学一点（php弱类型绕过）
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-03</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id><a href="#" class="headerlink" title></a></h1><a id="more"></a>
+<h2 id="CGCTF-md5-collision"><a href="#CGCTF-md5-collision" class="headerlink" title="CGCTF md5 collision"></a>CGCTF md5 collision</h2><p>这题考查的是php弱类型。<br>其实比较好理解<br>&lt; ?php<br>var_dump(‘root’ == 0);<br>//true//分析：先将字符串root转化成和0同等类型即数字型，因为字符串开始没有合法数值，则字符串root转换为0，最后0==0,所以成立。<br>var_dump(0 == ‘root’);<br>//true//分析：先将字符串root转化成和0同等类型即数字型，因为字符串开始没有合法数值，则字符串root转换为0，最后0==0,所以成立。<br>var_dump(‘22root’ == 22);<br>//true//分析：先将字符串22root转化成和0同等类型即数字型，因为字符串开始有合法数值，则取其连续的合法数值22，最后22==22，所以成立。<br>var_dump(‘22r22oot’ == 22);<br>//true//分析：先将字符串22r22oot转化成和0同等类型即数字型，因为字符串开始有合法数值，则取其连续的合法数值22，r后面的22因为与开始的合法数值不连续，所以不取它的值，22==22，所以成立。<br>var_dump(‘root22’ == 22);<br>//false//分析：先将字符串root22转化成和0同等类型即数字型，因为字符串开始没有合法数值，则字符串root22转换为0，最后0==22,所以不成立。<br>var_dump(‘root22’ == 0);<br>//true//分析：先将字符串root22转化成和0同等类型即数字型，因为字符串开始没有合法数值，则字符串root22转换为0，最后0==0,所以成立。<br>var_dump(‘0e170’ == ‘0e180’);<br>//true//分析：因为字符串中含有e开头的值，那么php代码会将其整体看成科学记数法，最后0的170次方==0的180次方，即0==0,所以成立<br>var_dump(0 === ‘root’);<br>//false//分析：=== 在进行比较的时候，会先判断两边类型是否相等,这里数值和字符串类型明显不等，因此不成立<br>var_dump (“0e830400451993494058024219903391” == 0);<br>//true//分析：先将字符串0e830400451993494058024219903391转化成和0同等类型即数字型，因为字符串开始有合法数值，则字符串0e830400451993494058024219903391转换为0，最后0==0,所以成立。<br>var_dump (“0e830400451993494058024219903391” == “0e830400451993494058024219904444”);<br>//true//分析：先将字符串0e830400451993494058024219903391与0e830400451993494058024219904444分别转化成数字型，因为两个字符串开始都有合法数值，则字符串0e830400451993494058024219903391转换为0，字符串0e830400451993494058024219904444转换为0，最后0==0,所以成立。<br>var_dump (0e830400451993494058024219903391 == 0e830400451993494058024219904444);<br>//true//分析：这不是字符串的比较了，这是数字型的比较，因为==两边的都是科学记数法0e（0的次方），最终0=0<br>?&gt;<br>根据这些知识就可以做题了<br>题目如下图<br><img src="/2020/02/03/web%EF%BC%88php%E5%BC%B1%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87%EF%BC%89/0.PNG" alt><br>根据题目可以知道，我们要输入一个a使a=0，但a不能为那个字符串<br>因此我们百度md5加密后为0的字符串。<br>常用的：<br>240610708，aabg7XSs，aabC9RqS<br>s878926199a<br>然后如下图出flag<br><img src="/2020/02/03/web%EF%BC%88php%E5%BC%B1%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87%EF%BC%89/1.png" alt></p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo" target="_blank" rel="noopener">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2020/03/07/crypto%E4%B9%8B%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80/">crypto之古典密码学基础</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/03/01/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%956/">web入门记录6</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/02/27/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%955/">web入门记录5</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/02/26/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%954/">web入门记录3</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/" target="_blank" rel="noopener">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+
+</html>

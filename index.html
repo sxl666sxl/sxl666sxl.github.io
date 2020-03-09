@@ -149,129 +149,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">
-                逆向刷题记录1
+            <a href="/2020/03/07/crypto%E4%B9%8B%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80/">
+                crypto之古典密码学基础
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2020-02-03</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="1-签到题"><a href="#1-签到题" class="headerlink" title="1.签到题"></a>1.签到题</h2><p>ida打开直接获取flag</p>
-<h2 id="2-reverse1"><a href="#2-reverse1" class="headerlink" title="2.reverse1"></a>2.reverse1</h2><p>ida打开。shift+f12查看所有字符，发现有this is the right flag！，双击打开，”x”键交叉引用，切换到关键代码F5反汇编显示截取的部分代码。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/0.PNG" alt><br>发现flag和str2有关系，双击str2点进去发现是{hello_world}<br>但是刚刚伪代码中显示要将‘o’换成‘0’<br>所以flag{hell0_w0rld}</p>
-<h2 id="3-reverse2"><a href="#3-reverse2" class="headerlink" title="3.reverse2"></a>3.reverse2</h2><p>用与上面相同的方法，找到主要函数，发现这次flag函数中i或者r字母都替换成1<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/1.PNG" alt><br>得到flag{hack1ng_fo1_fun}</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">
-                逆向刷题记录2
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-02-03</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="安卓逆向"><a href="#安卓逆向" class="headerlink" title="安卓逆向"></a>安卓逆向</h2><p>最近发现了一个反编译安装包文件的工具apkide可以反编译apk（安装包）类的文件，一开始不知道还傻乎乎的传到手机上下载了一下，后来找到工具，还是没翻出来flag，果断看了一下wp。。。发现在mainactivity有一行亲切的字符。。。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/2.png" alt></p>
-<h2 id="脱壳题"><a href="#脱壳题" class="headerlink" title="脱壳题"></a>脱壳题</h2><p><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/3.PNG" alt><br>虽然还是懵懵懂懂，但是对于文件壳有了更深一步的了解，用esp定律，然后脱掉壳，发现后面的基本上都是常规做法.</p>
-<h2 id="迷宫题"><a href="#迷宫题" class="headerlink" title="迷宫题"></a>迷宫题</h2><p>迷宫题至今还是处于蒙蔽的状态，在研究hgame比赛上的迷宫题，c语言伪代码基本上看懂了，迷宫也用脚本跑出来了，不知道这迷宫怎么走<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/4.PNG" alt></p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">
-                逆向刷题记录4
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-02-03</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="不一样的flag"><a href="#不一样的flag" class="headerlink" title="不一样的flag"></a>不一样的flag</h2><p>ida打开，shift+f12查看所有字符串，找到敏感的字符串后双击打开，再x交叉引用。找到主函数f5打开c语言伪代码。<br>如下图所示。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/0.PNG" alt><br>发现是一个迷宫题，迷宫被隐藏在data start这个函数里了<br><em>1111<br>01000<br>01010<br>00010<br>1111#<br>这个就是迷宫了。分析一下上图圈中代码发现如果是遇到1就直接结束，如果遇到#输出这是正确flag，然后结束，明显</em>是迷宫的开始，#是迷宫的结束。同时分析上面的代码发现输入2是v1+1是向下，输入1是向上，输入4是向右，3是向左。<br>所以flag就是222441144222</p>
-<h2 id="2020安恒比赛题"><a href="#2020安恒比赛题" class="headerlink" title="2020安恒比赛题"></a>2020安恒比赛题</h2><p>还是找到主函数，然后分析代码。不过这次再shift+f12时发现有base64这个字符串，说明这道题和base64加密有关系。<br>分析主要代码如下图<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/1.PNG" alt><br>然后编了一个c语言脚本，把可疑的字符串输进去<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/2.PNG" alt><br>然后base64解密跑出答案。</p>
-<h2 id="2020-hgame-RE部分maze"><a href="#2020-hgame-RE部分maze" class="headerlink" title="2020 hgame RE部分maze"></a>2020 hgame RE部分maze</h2><p>之前提到的一道题，后来时间过了，看了一下wp，之前的方向就错了。我哭了。。。。<br>ida打开找到主函数还是老一套，找到之后分析这个迷宫是根据wasd来控制移动的，这个时候最大的问题在于迷宫在哪里，之前贴的一张图压根不是这道题的迷宫。。。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/3.PNG" alt><br>这个时候分析函数，v5代表了当前所在位置。函数中还说明v5的地址为unk_6020C4这个区域。然后下面的if语句规定了迷宫的范围，而且这个迷宫比较复杂。64个字符为一行且4个字符中3字符是无效的。<br>然后把相应的数字提取出来，然后编脚本把对应的迷宫跑出来。如下图所示。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/4.PNG" alt></p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">
-                逆向刷题记录3
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-02-03</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="内涵的软件"><a href="#内涵的软件" class="headerlink" title="内涵的软件"></a>内涵的软件</h2><p>ida打开软件，还是老套路f12+shift查看所有字符串，找到主要函数，如图<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/5.png" alt><br>红圈之内的就是flag。。。</p>
-<h2 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h2><p>还是老套路，找到主函数，发现这里的flag被加密过了，和变量global有关系，找到global这个字符串之后，编一个脚本，把flag跑出来就ok，脚本代码及运行结果如下：<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/6.png" alt></p>
-<h2 id="reverse3"><a href="#reverse3" class="headerlink" title="reverse3"></a>reverse3</h2><p>这个题有点难度，涉及到了高级加密算法<br>发现加密后的str2结果是e3nifIH9b_C@n@dH，编一个脚本跑出来发现还不是答案，百度后发现还包含一次base64加密。<br>脚本如下：<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/7.PNG" alt><br>然后base64解密<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/8.PNG" alt><br>flag出来了</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/02/03/%E5%81%B7%E5%AD%A6%E4%B8%80%E7%82%B9%EF%BC%88php%E5%BC%B1%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87%EF%BC%89/">
-                偷学一点（php弱类型绕过）
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-02-03</span>
+                <span class="date">2020-03-07</span>
             
             
             
@@ -282,7 +166,7 @@
         <div class="content">
             <h1 id><a href="#" class="headerlink" title></a></h1>
         </div>
-        <a href="/2020/02/03/%E5%81%B7%E5%AD%A6%E4%B8%80%E7%82%B9%EF%BC%88php%E5%BC%B1%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87%EF%BC%89/" class="read-more">Read More</a>
+        <a href="/2020/03/07/crypto%E4%B9%8B%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="read-more">Read More</a>
     
 
 </div>
@@ -292,39 +176,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%955/">
-                逆向刷题记录5
+            <a href="/2020/03/01/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%956/">
+                web入门记录6
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2020-02-03</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2019/12/13/AGCTF%E7%9A%84wp/">
-                AGCTF的wp
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-12-13</span>
+                <span class="date">2020-03-01</span>
             
             
             
@@ -335,7 +193,221 @@
         <div class="content">
             <h1 id><a href="#" class="headerlink" title></a></h1>
         </div>
-        <a href="/2019/12/13/AGCTF%E7%9A%84wp/" class="read-more">Read More</a>
+        <a href="/2020/03/01/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%956/" class="read-more">Read More</a>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/27/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%955/">
+                web入门记录5
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-27</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id><a href="#" class="headerlink" title></a></h1>
+        </div>
+        <a href="/2020/02/27/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%955/" class="read-more">Read More</a>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/26/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%954/">
+                web入门记录3
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-26</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/26/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%953/">
+                web入门记录3
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-26</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id><a href="#" class="headerlink" title></a></h1>
+        </div>
+        <a href="/2020/02/26/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%953/" class="read-more">Read More</a>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/25/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%952/">
+                web入门记录2
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-25</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id><a href="#" class="headerlink" title></a></h1>
+        </div>
+        <a href="/2020/02/25/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%952/" class="read-more">Read More</a>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/24/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%951/">
+                web入门记录1
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-24</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id><a href="#" class="headerlink" title></a></h1>
+        </div>
+        <a href="/2020/02/24/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%951/" class="read-more">Read More</a>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/14/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%958/">
+                逆向刷题记录8
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-14</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/07/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%957/">
+                逆向刷题记录7
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-07</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id><a href="#" class="headerlink" title></a></h1>
+        </div>
+        <a href="/2020/02/07/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%957/" class="read-more">Read More</a>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/05/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%956/">
+                逆向刷题记录6
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-05</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id><a href="#" class="headerlink" title></a></h1>
+        </div>
+        <a href="/2020/02/05/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%956/" class="read-more">Read More</a>
     
 
 </div>
@@ -345,6 +417,19 @@
 </div>
 
 
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrap-pagination">
+                <a class="disabled" href="/">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+                <a class="" href="/page/2/">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -369,19 +454,19 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">逆向刷题记录1</a>
+                <a class="footer-post" href="/2020/03/07/crypto%E4%B9%8B%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80/">crypto之古典密码学基础</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">逆向刷题记录2</a>
+                <a class="footer-post" href="/2020/03/01/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%956/">web入门记录6</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">逆向刷题记录4</a>
+                <a class="footer-post" href="/2020/02/27/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%955/">web入门记录5</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">逆向刷题记录3</a>
+                <a class="footer-post" href="/2020/02/26/web%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%954/">web入门记录3</a>
             </li>
             
         </ul>
