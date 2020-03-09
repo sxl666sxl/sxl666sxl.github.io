@@ -149,6 +149,149 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">
+                逆向刷题记录1
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-03</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="1-签到题"><a href="#1-签到题" class="headerlink" title="1.签到题"></a>1.签到题</h2><p>ida打开直接获取flag</p>
+<h2 id="2-reverse1"><a href="#2-reverse1" class="headerlink" title="2.reverse1"></a>2.reverse1</h2><p>ida打开。shift+f12查看所有字符，发现有this is the right flag！，双击打开，”x”键交叉引用，切换到关键代码F5反汇编显示截取的部分代码。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/0.PNG" alt><br>发现flag和str2有关系，双击str2点进去发现是{hello_world}<br>但是刚刚伪代码中显示要将‘o’换成‘0’<br>所以flag{hell0_w0rld}</p>
+<h2 id="3-reverse2"><a href="#3-reverse2" class="headerlink" title="3.reverse2"></a>3.reverse2</h2><p>用与上面相同的方法，找到主要函数，发现这次flag函数中i或者r字母都替换成1<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/1.PNG" alt><br>得到flag{hack1ng_fo1_fun}</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">
+                逆向刷题记录2
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-03</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="安卓逆向"><a href="#安卓逆向" class="headerlink" title="安卓逆向"></a>安卓逆向</h2><p>最近发现了一个反编译安装包文件的工具apkide可以反编译apk（安装包）类的文件，一开始不知道还傻乎乎的传到手机上下载了一下，后来找到工具，还是没翻出来flag，果断看了一下wp。。。发现在mainactivity有一行亲切的字符。。。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/2.png" alt></p>
+<h2 id="脱壳题"><a href="#脱壳题" class="headerlink" title="脱壳题"></a>脱壳题</h2><p><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/3.PNG" alt><br>虽然还是懵懵懂懂，但是对于文件壳有了更深一步的了解，用esp定律，然后脱掉壳，发现后面的基本上都是常规做法.</p>
+<h2 id="迷宫题"><a href="#迷宫题" class="headerlink" title="迷宫题"></a>迷宫题</h2><p>迷宫题至今还是处于蒙蔽的状态，在研究hgame比赛上的迷宫题，c语言伪代码基本上看懂了，迷宫也用脚本跑出来了，不知道这迷宫怎么走<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/4.PNG" alt></p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">
+                逆向刷题记录4
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-03</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="不一样的flag"><a href="#不一样的flag" class="headerlink" title="不一样的flag"></a>不一样的flag</h2><p>ida打开，shift+f12查看所有字符串，找到敏感的字符串后双击打开，再x交叉引用。找到主函数f5打开c语言伪代码。<br>如下图所示。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/0.PNG" alt><br>发现是一个迷宫题，迷宫被隐藏在data start这个函数里了<br><em>1111<br>01000<br>01010<br>00010<br>1111#<br>这个就是迷宫了。分析一下上图圈中代码发现如果是遇到1就直接结束，如果遇到#输出这是正确flag，然后结束，明显</em>是迷宫的开始，#是迷宫的结束。同时分析上面的代码发现输入2是v1+1是向下，输入1是向上，输入4是向右，3是向左。<br>所以flag就是222441144222</p>
+<h2 id="2020安恒比赛题"><a href="#2020安恒比赛题" class="headerlink" title="2020安恒比赛题"></a>2020安恒比赛题</h2><p>还是找到主函数，然后分析代码。不过这次再shift+f12时发现有base64这个字符串，说明这道题和base64加密有关系。<br>分析主要代码如下图<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/1.PNG" alt><br>然后编了一个c语言脚本，把可疑的字符串输进去<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/2.PNG" alt><br>然后base64解密跑出答案。</p>
+<h2 id="2020-hgame-RE部分maze"><a href="#2020-hgame-RE部分maze" class="headerlink" title="2020 hgame RE部分maze"></a>2020 hgame RE部分maze</h2><p>之前提到的一道题，后来时间过了，看了一下wp，之前的方向就错了。我哭了。。。。<br>ida打开找到主函数还是老一套，找到之后分析这个迷宫是根据wasd来控制移动的，这个时候最大的问题在于迷宫在哪里，之前贴的一张图压根不是这道题的迷宫。。。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/3.PNG" alt><br>这个时候分析函数，v5代表了当前所在位置。函数中还说明v5的地址为unk_6020C4这个区域。然后下面的if语句规定了迷宫的范围，而且这个迷宫比较复杂。64个字符为一行且4个字符中3字符是无效的。<br>然后把相应的数字提取出来，然后编脚本把对应的迷宫跑出来。如下图所示。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/4.PNG" alt></p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">
+                逆向刷题记录3
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-03</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="内涵的软件"><a href="#内涵的软件" class="headerlink" title="内涵的软件"></a>内涵的软件</h2><p>ida打开软件，还是老套路f12+shift查看所有字符串，找到主要函数，如图<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/5.png" alt><br>红圈之内的就是flag。。。</p>
+<h2 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h2><p>还是老套路，找到主函数，发现这里的flag被加密过了，和变量global有关系，找到global这个字符串之后，编一个脚本，把flag跑出来就ok，脚本代码及运行结果如下：<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/6.png" alt></p>
+<h2 id="reverse3"><a href="#reverse3" class="headerlink" title="reverse3"></a>reverse3</h2><p>这个题有点难度，涉及到了高级加密算法<br>发现加密后的str2结果是e3nifIH9b_C@n@dH，编一个脚本跑出来发现还不是答案，百度后发现还包含一次base64加密。<br>脚本如下：<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/7.PNG" alt><br>然后base64解密<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/8.PNG" alt><br>flag出来了</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2020/02/03/%E5%81%B7%E5%AD%A6%E4%B8%80%E7%82%B9%EF%BC%88php%E5%BC%B1%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87%EF%BC%89/">
+                偷学一点（php弱类型绕过）
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-03</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id><a href="#" class="headerlink" title></a></h1>
+        </div>
+        <a href="/2020/02/03/%E5%81%B7%E5%AD%A6%E4%B8%80%E7%82%B9%EF%BC%88php%E5%BC%B1%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87%EF%BC%89/" class="read-more">Read More</a>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%955/">
                 逆向刷题记录5
             </a>
@@ -175,122 +318,6 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">
-                逆向刷题记录4
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-01-28</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="不一样的flag"><a href="#不一样的flag" class="headerlink" title="不一样的flag"></a>不一样的flag</h2><p>ida打开，shift+f12查看所有字符串，找到敏感的字符串后双击打开，再x交叉引用。找到主函数f5打开c语言伪代码。<br>如下图所示。<br><img src="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/0.PNG" alt><br>发现是一个迷宫题，迷宫被隐藏在data start这个函数里了<br><em>1111<br>01000<br>01010<br>00010<br>1111#<br>这个就是迷宫了。分析一下上图圈中代码发现如果是遇到1就直接结束，如果遇到#输出这是正确flag，然后结束，明显</em>是迷宫的开始，#是迷宫的结束。同时分析上面的代码发现输入2是v1+1是向下，输入1是向上，输入4是向右，3是向左。<br>所以flag就是222441144222</p>
-<h2 id="2020安恒比赛题"><a href="#2020安恒比赛题" class="headerlink" title="2020安恒比赛题"></a>2020安恒比赛题</h2><p>还是找到主函数，然后分析代码。不过这次再shift+f12时发现有base64这个字符串，说明这道题和base64加密有关系。<br>分析主要代码如下图<br><img src="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/1.PNG" alt><br>然后编了一个c语言脚本，把可疑的字符串输进去<br><img src="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/2.PNG" alt><br>然后base64解密跑出答案。</p>
-<h2 id="2020-hgame-RE部分maze"><a href="#2020-hgame-RE部分maze" class="headerlink" title="2020 hgame RE部分maze"></a>2020 hgame RE部分maze</h2><p>之前提到的一道题，后来时间过了，看了一下wp，之前的方向就错了。我哭了。。。。<br>ida打开找到主函数还是老一套，找到之后分析这个迷宫是根据wasd来控制移动的，这个时候最大的问题在于迷宫在哪里，之前贴的一张图压根不是这道题的迷宫。。。<br><img src="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/3.PNG" alt><br>这个时候分析函数，v5代表了当前所在位置。函数中还说明v5的地址为unk_6020C4这个区域。然后下面的if语句规定了迷宫的范围，而且这个迷宫比较复杂。64个字符为一行且4个字符中3字符是无效的。<br>然后把相应的数字提取出来，然后编脚本把对应的迷宫跑出来。如下图所示。<br><img src="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/4.PNG" alt></p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">
-                逆向刷题记录3
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-01-23</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="内涵的软件"><a href="#内涵的软件" class="headerlink" title="内涵的软件"></a>内涵的软件</h2><p>ida打开软件，还是老套路f12+shift查看所有字符串，找到主要函数，如图<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/5.png" alt><br>红圈之内的就是flag。。。</p>
-<h2 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h2><p>还是老套路，找到主函数，发现这里的flag被加密过了，和变量global有关系，找到global这个字符串之后，编一个脚本，把flag跑出来就ok，脚本代码及运行结果如下：<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/6.png" alt></p>
-<h2 id="reverse3"><a href="#reverse3" class="headerlink" title="reverse3"></a>reverse3</h2><p>这个题有点难度，涉及到了高级加密算法<br>发现加密后的str2结果是e3nifIH9b_C@n@dH，编一个脚本跑出来发现还不是答案，百度后发现还包含一次base64加密。<br>脚本如下：<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/7.PNG" alt><br>然后base64解密<br><img src="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/8.PNG" alt><br>flag出来了</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/01/22/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">
-                逆向刷题记录2
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-01-22</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="安卓逆向"><a href="#安卓逆向" class="headerlink" title="安卓逆向"></a>安卓逆向</h2><p>最近发现了一个反编译安装包文件的工具apkide可以反编译apk（安装包）类的文件，一开始不知道还傻乎乎的传到手机上下载了一下，后来找到工具，还是没翻出来flag，果断看了一下wp。。。发现在mainactivity有一行亲切的字符。。。<br><img src="/2020/01/22/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/2.png" alt></p>
-<h2 id="脱壳题"><a href="#脱壳题" class="headerlink" title="脱壳题"></a>脱壳题</h2><p><img src="/2020/01/22/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/3.PNG" alt><br>虽然还是懵懵懂懂，但是对于文件壳有了更深一步的了解，用esp定律，然后脱掉壳，发现后面的基本上都是常规做法.</p>
-<h2 id="迷宫题"><a href="#迷宫题" class="headerlink" title="迷宫题"></a>迷宫题</h2><p>迷宫题至今还是处于蒙蔽的状态，在研究hgame比赛上的迷宫题，c语言伪代码基本上看懂了，迷宫也用脚本跑出来了，不知道这迷宫怎么走<br><img src="/2020/01/22/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/4.PNG" alt></p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">
-                逆向刷题记录1
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-01-17</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="1-签到题"><a href="#1-签到题" class="headerlink" title="1.签到题"></a>1.签到题</h2><p>ida打开直接获取flag</p>
-<h2 id="2-reverse1"><a href="#2-reverse1" class="headerlink" title="2.reverse1"></a>2.reverse1</h2><p>ida打开。shift+f12查看所有字符，发现有this is the right flag！，双击打开，”x”键交叉引用，切换到关键代码F5反汇编显示截取的部分代码。<br><img src="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/0.PNG" alt><br>发现flag和str2有关系，双击str2点进去发现是{hello_world}<br>但是刚刚伪代码中显示要将‘o’换成‘0’<br>所以flag{hell0_w0rld}</p>
-<h2 id="3-reverse2"><a href="#3-reverse2" class="headerlink" title="3.reverse2"></a>3.reverse2</h2><p>用与上面相同的方法，找到主要函数，发现这次flag函数中i或者r字母都替换成1<br><img src="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/1.PNG" alt><br>得到flag{hack1ng_fo1_fun}</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
             <a href="/2019/12/13/AGCTF%E7%9A%84wp/">
                 AGCTF的wp
             </a>
@@ -306,22 +333,9 @@
 
     
         <div class="content">
-            <h1 id="AGCTF的wp"><a href="#AGCTF的wp" class="headerlink" title="AGCTF的wp"></a>AGCTF的wp</h1><h2 id="web1"><a href="#web1" class="headerlink" title="web1:"></a>web1:</h2><p>首先，按照题目规定，将当前浏览器设置代理服务器，改成黑板上的ip地址，再登入题目所给的网址,发现是一个正常的百度页面，然后f12查看源码，发现body有一栏中隐藏着flag。</p>
-<h2 id="web2："><a href="#web2：" class="headerlink" title="web2："></a>web2：</h2><p>还是将服务器设置代理，然后点进题目所给的网站。发现网站显示链接错误。这时候登入http://当前ip:4001/web000（网页的上一个目录），发现一系列网站相关文件，仔细观察，分析，思考后，发现只有后缀为.js的网页用f12查看源码有一些奇奇怪怪的由![]+构成的代码。分析发现这是js代码。将这一大串代码拖进控制台运行，得到flag。</p>
-<h2 id="MISC签到："><a href="#MISC签到：" class="headerlink" title="MISC签到："></a>MISC签到：</h2><p>复制，粘贴。</p>
-<h2 id="圣堂刺客："><a href="#圣堂刺客：" class="headerlink" title="圣堂刺客："></a>圣堂刺客：</h2><p>下载题目所给图片，直接拖进记事本，发现隐藏的flag。</p>
-<h2 id="奥利安娜的qq号："><a href="#奥利安娜的qq号：" class="headerlink" title="奥利安娜的qq号："></a>奥利安娜的qq号：</h2><p>直接运用c语言知识，编写程序，最后运行出flag。</p>
-<h2 id="多喝水："><a href="#多喝水：" class="headerlink" title="多喝水："></a>多喝水：</h2><p>与上题相同思路，拖进记事本，发现有一串英文，ohhhh，just do it。后面连着一串奇怪的字符。经过分析、思考、查证之后发现是base64加密后的密文，直接在百度上搜索base64解密。解密后得到flag。</p>
-<h2 id="帅帅帅："><a href="#帅帅帅：" class="headerlink" title="帅帅帅："></a>帅帅帅：</h2><p>下载题目所给的html网页文件后，打开网页。f12查看源码，得到flag。</p>
-<h2 id="单身狗："><a href="#单身狗：" class="headerlink" title="单身狗："></a>单身狗：</h2><p>下载题目所给文件后。发现二维码的一个定位点被一只该死的狗挡住了。这时候打开画图软件（ps应该也可以），把狗擦掉。补全定位点。扫描二维码得到flag。</p>
-<h2 id="一个32岁学长的情书："><a href="#一个32岁学长的情书：" class="headerlink" title="一个32岁学长的情书："></a>一个32岁学长的情书：</h2><p>题目都暗示了，为啥是32岁，不是30岁，不是100岁，偏偏是32岁。为啥写给贝丝不写给我。很明显这段密码是要用base32解密。解密后得到flag。</p>
-<h2 id="这是个gif："><a href="#这是个gif：" class="headerlink" title="这是个gif："></a>这是个gif：</h2><p>下载题目所给文件后，打开，很明显图片格式打不开。这时候分析一下应该是文件代码出现了问题。将文件拖进winhex。百度搜索gif文件头尾。发现文件头缺失。点击winhex中的edit（编辑），插入3组文件头。保存。打开文件后。发现gif文件中有一帧含flag。用stegsolve直接打开截取那一帧。获得flag。</p>
-<h2 id="easy-misc："><a href="#easy-misc：" class="headerlink" title="easy misc："></a>easy misc：</h2><p>弱密码字典直接爆破（将txt改成dic），得到一个图片，发现一个图片，没什么用，binwalk执行该文件发现这个文件下含有一个压缩文件。修改图片的后缀名。<br>得到二维码，用上面题的思路，得到flag。</p>
-<h2 id="ezida："><a href="#ezida：" class="headerlink" title="ezida："></a>ezida：</h2><p>直接用ida打开，往下拉发现右侧灰色字体有flag。</p>
-<h2 id="easy-re："><a href="#easy-re：" class="headerlink" title="easy re："></a>easy re：</h2><p>用ida打开，根据右侧灰色字体提示，找到该程序的主函数。f5转换为c源码。用r转换为字符串。获得flag。</p>
-<h2 id="RE"><a href="#RE" class="headerlink" title="RE:"></a>RE:</h2><p>先打开ida，分析代码，发现字符串长度为15。再往下分析，发现flag与一串字符有关，将字符串转化为16进制的数字，编一个c语言脚本，将每一个16进制数字分别减去40.发现flag</p>
-
+            <h1 id><a href="#" class="headerlink" title></a></h1>
         </div>
+        <a href="/2019/12/13/AGCTF%E7%9A%84wp/" class="read-more">Read More</a>
     
 
 </div>
@@ -355,19 +369,19 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%955/">逆向刷题记录5</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">逆向刷题记录1</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">逆向刷题记录4</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">逆向刷题记录2</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">逆向刷题记录3</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">逆向刷题记录4</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/01/22/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">逆向刷题记录2</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">逆向刷题记录3</a>
             </li>
             
         </ul>

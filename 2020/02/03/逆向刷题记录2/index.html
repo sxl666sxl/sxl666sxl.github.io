@@ -10,8 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="1.签到题ida打开直接获取flag
-2.reverse1ida打开。shift+f12查看所有字符，发现有this is the right flag！，双击打开，”x”键交叉引用，切换到关键代码F5反汇编显示截取的部分代码。发现flag和str2有关系，双击str2点进去发现是{hello_wo">
+        <meta name="description" content="安卓逆向最近发现了一个反编译安装包文件的工具apkide可以反编译apk（安装包）类的文件，一开始不知道还傻乎乎的传到手机上下载了一下，后来找到工具，还是没翻出来flag，果断看了一下wp。。。发现在mainactivity有一行亲切的字符。。。
+脱壳题虽然还是懵懵懂懂，但是对于文件壳有了更深一步的">
     
 
     <!--Author-->
@@ -21,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="逆向刷题记录1"/>
+        <meta property="og:title" content="逆向刷题记录2"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>逆向刷题记录1 - 孙晓林</title>
+    <title>逆向刷题记录2 - 孙晓林</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -149,13 +149,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">
-                逆向刷题记录1
+            <a href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">
+                逆向刷题记录2
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2020-01-17</span>
+                <span class="date">2020-02-03</span>
             
             
             
@@ -168,9 +168,9 @@
         
 
         <!-- Post Content -->
-        <h2 id="1-签到题"><a href="#1-签到题" class="headerlink" title="1.签到题"></a>1.签到题</h2><p>ida打开直接获取flag</p>
-<h2 id="2-reverse1"><a href="#2-reverse1" class="headerlink" title="2.reverse1"></a>2.reverse1</h2><p>ida打开。shift+f12查看所有字符，发现有this is the right flag！，双击打开，”x”键交叉引用，切换到关键代码F5反汇编显示截取的部分代码。<br><img src="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/0.PNG" alt><br>发现flag和str2有关系，双击str2点进去发现是{hello_world}<br>但是刚刚伪代码中显示要将‘o’换成‘0’<br>所以flag{hell0_w0rld}</p>
-<h2 id="3-reverse2"><a href="#3-reverse2" class="headerlink" title="3.reverse2"></a>3.reverse2</h2><p>用与上面相同的方法，找到主要函数，发现这次flag函数中i或者r字母都替换成1<br><img src="/2020/01/17/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/1.PNG" alt><br>得到flag{hack1ng_fo1_fun}</p>
+        <h2 id="安卓逆向"><a href="#安卓逆向" class="headerlink" title="安卓逆向"></a>安卓逆向</h2><p>最近发现了一个反编译安装包文件的工具apkide可以反编译apk（安装包）类的文件，一开始不知道还傻乎乎的传到手机上下载了一下，后来找到工具，还是没翻出来flag，果断看了一下wp。。。发现在mainactivity有一行亲切的字符。。。<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/2.png" alt></p>
+<h2 id="脱壳题"><a href="#脱壳题" class="headerlink" title="脱壳题"></a>脱壳题</h2><p><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/3.PNG" alt><br>虽然还是懵懵懂懂，但是对于文件壳有了更深一步的了解，用esp定律，然后脱掉壳，发现后面的基本上都是常规做法.</p>
+<h2 id="迷宫题"><a href="#迷宫题" class="headerlink" title="迷宫题"></a>迷宫题</h2><p>迷宫题至今还是处于蒙蔽的状态，在研究hgame比赛上的迷宫题，c语言伪代码基本上看懂了，迷宫也用脚本跑出来了，不知道这迷宫怎么走<br><img src="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/4.PNG" alt></p>
 
     </div>
 
@@ -208,19 +208,19 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%955/">逆向刷题记录5</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%951/">逆向刷题记录1</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/01/28/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">逆向刷题记录4</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">逆向刷题记录2</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/01/23/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">逆向刷题记录3</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%954/">逆向刷题记录4</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/01/22/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%952/">逆向刷题记录2</a>
+                <a class="footer-post" href="/2020/02/03/%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%953/">逆向刷题记录3</a>
             </li>
             
         </ul>
